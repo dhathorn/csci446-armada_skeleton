@@ -7,6 +7,12 @@ class Role < ActiveRecord::Base
 
   has_many :users
 
+  protected
+
+  def after_initialize
+    if new_record? then self.name = self.name.downcase end
+  end
+
 end
 
 
