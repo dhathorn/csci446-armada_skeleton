@@ -12,6 +12,14 @@ class User < ActiveRecord::Base
 
   validates_presence_of :role
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
+  def to_s
+    self.full_name
+  end
+
   def role_symbols
     [role.name.downcase.to_sym]
   end
