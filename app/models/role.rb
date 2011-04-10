@@ -4,6 +4,7 @@ class Role < ActiveRecord::Base
   
   validates_length_of :name, :minimum => 1
   validates_uniqueness_of :name
+  validates_presence_of :name
 
   has_many :users
 
@@ -13,7 +14,7 @@ class Role < ActiveRecord::Base
   protected
 
   def after_initialize
-    if new_record? then self.name = self.name.strip.downcase end
+    if new_record? && self.name then self.name = self.name.strip.downcase end
   end
 
 end
