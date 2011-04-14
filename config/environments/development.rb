@@ -10,5 +10,6 @@ config.action_mailer.default_url_options = { :host => "localhost:3000" }
 config.gem "heroku_san"
 config.gem "annotate"
 config.gem "mocha"
+config.gem "will_paginate"
 
 

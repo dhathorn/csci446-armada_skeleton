@@ -1,2 +1,14 @@
-%h2 TODO
-%p Find me in app/views/application/show.html.haml
+%h2 All Battleships
+%p
+  = will_paginate @battleships
+  = page_entries_info @battleships
+  %table 
+    - @battleships.each do |battleship|
+      %tr
+        %td= 'placeholder for image'
+        %td
+          = "#{battleship.name} by #{battleship.user_id.name} #{battleship.cost}"
+          %br
+          = battleship.description
+
+        
