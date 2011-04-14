@@ -7,7 +7,7 @@
       %tr
         %td= 'placeholder for image'
         %td
-          = "#{battleship.name} by #{battleship.user_id.name} #{battleship.cost}"
+          = "#{battleship.name} owned by #{battleship.user.full_name} cost:#{battleship.cost}"
           %br
           = battleship.description
 
