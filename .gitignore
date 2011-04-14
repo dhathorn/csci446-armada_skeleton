@@ -19,5 +19,9 @@ test/coverage/*
 Vagrantfile
 *.box
 *.*~
+<<<<<<< HEAD
 *.swo
 *.swp
+=======
+.rvmrc
+>>>>>>> upstream/master
