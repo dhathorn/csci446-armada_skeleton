@@ -19,7 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :members do |members|
     members.resources :battleships
     members.resources :users, :only => [:show, :edit, :update]
-    members.root :controller => 'members', :action => 'index'
+    members.root :controller => 'battleships', :action => 'index'
   end
 
 end

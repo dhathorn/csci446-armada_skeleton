@@ -14,8 +14,9 @@ class Members::BattleshipsController < Members::MembersController
 
   def create
     @battleship = Battleship.new(params[:battleship])
+    @battleship.user = current_user
     if @battleship.save
-     redirect_to( members_root_path, :notice => "Successfully added #{@battleship.name}")
+     redirect_to( root_path, :notice => "Successfully added #{@battleship.name}")
     else
       flash[:error] = "Could not create battleship"
       render :action => "new"

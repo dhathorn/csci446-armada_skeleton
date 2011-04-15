@@ -1,8 +1,8 @@
 module ApplicationHelper
 
-  def new_link
+  def new_link(user)
     if user
-      link_to("New Battleship", members_new_battleship_path)
+      link_to("New Battleship", new_members_battleship_path)
     else 
       link_to("New Battleship", login_path)
     end

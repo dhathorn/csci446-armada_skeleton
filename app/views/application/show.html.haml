@@ -4,7 +4,7 @@
   %br
   = "#{@battleships.size} battleships as of #{Time.now.to_s(:short_date)}"
   %userbar
-    =new_link
+    =new_link(@current_user)
   %table 
     - @battleships.each do |battleship|
       %tr
