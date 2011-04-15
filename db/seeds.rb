@@ -36,5 +36,7 @@ yong.save_without_session_maintenance
 
 #seed some battleships
 
-Battleship.create(:name => 'USS Iowa', :description =>  "Iowa class battleship", :cost => '100000',
-                  :user_id => User.find_by_first_name("Daniel"))
+0.upto(10) do |n|
+  Battleship.create(:name => "USS Iowa#{n}", :description =>  "Iowa class battleship", :cost => '100000',
+                  :user => User.find_by_first_name("Daniel"))
+end
