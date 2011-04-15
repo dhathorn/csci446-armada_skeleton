@@ -1,0 +1,4 @@
+%h1= "Edit #{@battleship.name}"
+= render :partial => 'form', :locals {:f => f}
+
+= link_to 'Back', members_battleships_path
