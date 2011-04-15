@@ -7,9 +7,10 @@
   %table 
     - @battleships.each do |battleship|
       %tr
-        %td= 'placeholder for image'
+        %td= image_tag(battleship.image)
         %td
-          = "#{battleship.name} owned by #{battleship.user.full_name} (#{battleship.cost} ArmadaBucks)"
+          = link_to battleship_path
+          = "owned by #{battleship.user.full_name} (#{battleship.cost} ArmadaBucks)"
           %br
           = battleship.description
   = page_entries_info @battleships

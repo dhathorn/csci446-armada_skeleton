@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+  def new_link
+    if user
+      link_to("New Battleship", members_new_battleship_path)
+    else 
+      link_to("New Battleship", login_path)
+    end
+  end
+
   def admin_menu_items(user)
     render :partial => 'layouts/admin_menu_items' if user.is_admin?
   end
