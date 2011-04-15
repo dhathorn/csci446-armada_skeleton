@@ -1,7 +1,11 @@
-class Members::BatleshipsController < Members::MembersController
+class Members::BattleshipsController < Members::MembersController
   def index
     @battleships = Battleship.paginate :page => params[:page], :order => 'created_at DESC'
     render
+  end
+
+  def show
+    @battleship = Battleship.find(params[:id])
   end
 
   def new
@@ -38,3 +42,4 @@ class Members::BatleshipsController < Members::MembersController
     redirect_to(members_battleships_url)
   end
 
+end

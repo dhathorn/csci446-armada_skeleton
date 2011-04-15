@@ -10,12 +10,14 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :only => [:new, :create]
 
   map.namespace :admin do |admin|
+    admin.resources :battleships
     admin.resources :roles
     admin.resources :users
     admin.root :controller => 'admin', :action => 'index'
   end
 
   map.namespace :members do |members|
+    members.resources :battleships
     members.resources :users, :only => [:show, :edit, :update]
     members.root :controller => 'members', :action => 'index'
   end

@@ -4,8 +4,8 @@ class Battleship < ActiveRecord::Base
   validates_length_of :name, :minimum => 1
   validates_presence_of :name
 
-  has_attached_file :image, :styles => { :large => "500x500>", :thumb => "100x100>" }
-
+  has_attached_file :image, :styles => { :large => "500x500>", :thumb => "100x100>" },
+    :url => '/assets/:class/:attachment/:id/:style/:filename'
   belongs_to :user
 
   @@per_page = 10

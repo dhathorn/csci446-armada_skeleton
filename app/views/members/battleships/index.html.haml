@@ -1,0 +1,16 @@
+%h2 All Battleships
+%p
+  = will_paginate @battleships
+  %br
+  = "#{@battleships.size} battleships as of #{Time.now.to_s(:short_date)}"
+  %table 
+    - @battleships.each do |battleship|
+      %tr
+        %td= 'placeholder for image'
+        %td
+          = "#{battleship.name} owned by #{battleship.user.full_name} (#{battleship.cost} ArmadaBucks)"
+          %br
+          = battleship.description
+  = page_entries_info @battleships
+
+        

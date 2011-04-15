@@ -16,6 +16,10 @@ ActiveRecord::Schema.define(:version => 20110414220331) do
     t.text     "description"
     t.integer  "user_id"
     t.integer  "cost"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,10 +78,6 @@ ActiveRecord::Schema.define(:version => 20110414220331) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
