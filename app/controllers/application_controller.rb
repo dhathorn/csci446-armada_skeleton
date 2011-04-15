@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   # A simple route for the application home page or root_url.
   def show
     @battleships = Battleship.paginate :page => params[:page], :order => 'created_at DESC'
-    render
+    render 'members/battleships/index'
   end
 
   protected
