@@ -1,6 +1,6 @@
 = render :partial => 'members/battleships/battle_ship_bar'
 %h2 All Battleships
-%userbar
+#userbar
   =new_link(@current_user)
 %p
   = will_paginate @battleships
@@ -14,7 +14,7 @@
           = link_to battleship.name, [:members, battleship]
           = "owned by #{battleship.user.full_name} (#{battleship.cost} ArmadaBucks)"
           %br
-          = truncate(battleship.description)
+          = truncate(battleship.description, :length => 50)
         %td= link_to image_tag("icon_small_info.png", :border => 0, :alt => "Show"), [:members, battleship], :title => "Show #{battleship.name}"
         -if owned_by(current_user, battleship)
           %td= link_to image_tag("icon_small_edit.png", :border => 0, :alt => "Edit"), edit_members_battleship_path(battleship), :title => "Edit #{battleship.name}"
