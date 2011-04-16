@@ -8,14 +8,15 @@
   = "#{@battleships.size} battleships as of #{Time.now.to_s(:short_date)}"
   %table 
     - @battleships.each do |battleship|
-      %tr
+      %tr{:id => "battleship#{battleship.id}"}
         %td= image_tag(battleship.image.url)
         %td
           = link_to battleship.name, [:members, battleship]
           = "owned by #{battleship.user.full_name} (#{battleship.cost} ArmadaBucks)"
           %br
-          %span{:id => "trunc#{battleship.id}"}= truncate_and_link(battleship)
-          %div{:id => "notrunc#{battleship.id}", :style => "display: none"}= h battleship.description
+          = truncate(battleship.description, :length => 50)
+          = link_to_function("test") do |page|
+            =page.hide :desc
         %td= link_to image_tag("icon_small_info.png", :border => 0, :alt => "Show"), [:members, battleship], :title => "Show #{battleship.name}"
         -if owned_by(current_user, battleship)
           %td= link_to image_tag("icon_small_edit.png", :border => 0, :alt => "Edit"), edit_members_battleship_path(battleship), :title => "Edit #{battleship.name}"
