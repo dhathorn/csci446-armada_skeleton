@@ -1,5 +1,23 @@
 = render :partial => 'battle_ship_bar'
 %h1= "Edit #{@battleship.name}"
-= render :partial => 'form', :locals {:f => f}
+- form_for([:members, @battleship], :html => {:multipart => true}) do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br/
+    = f.text_field :name
+  %p
+    = f.label :description
+    %br/
+    = f.text_area :description
+  %p
+    = f.label :image
+    %br/
+    = f.file_field :image
+  %p
+    = f.label :cost
+    %br/
+    = f.text_field :cost
+  = f.submit 'Save'
 
 = link_to 'Back', members_battleships_path

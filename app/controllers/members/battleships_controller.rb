@@ -24,11 +24,11 @@ class Members::BattleshipsController < Members::MembersController
   end
 
   def edit
-    @battleship = battleship.find(params[:id])
+    @battleship = Battleship.find(params[:id])
   end
 
   def update
-    @battleship = battleship.find(params[:id])
+    @battleship = Battleship.find(params[:id])
 
     if @battleship.update_attributes(params[:battleship])
       redirect_to( members_root_path, :notice => 'battleship was successfully updated.')
