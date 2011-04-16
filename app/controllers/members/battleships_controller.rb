@@ -27,6 +27,7 @@ class Members::BattleshipsController < Members::MembersController
     @battleship = Battleship.find(params[:id])
   end
 
+
   def update
     @battleship = Battleship.find(params[:id])
 
@@ -41,6 +42,12 @@ class Members::BattleshipsController < Members::MembersController
     @battleship = battleship.find(params[:id])
     @battleship.destroy
     redirect_to(members_battleships_url)
+  end
+
+  def favorate
+    @battleship = Battleship.find(params[:id])
+    @battleship.favorate ? @battleship.update_attribute(:favorate, false) : @battleship.update_arrtibute(:favorate, true)
+    redirect_to members_battleships_path
   end
 
 end

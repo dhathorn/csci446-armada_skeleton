@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.namespace :members do |members|
-    members.resources :battleships
+    members.resources :battleships, :member => {:favorate => :put}
     members.resources :users, :only => [:show, :edit, :update]
     members.root :controller => 'battleships', :action => 'index'
   end

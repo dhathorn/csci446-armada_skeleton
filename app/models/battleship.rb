@@ -31,4 +31,5 @@ end
 #  user_id     :integer         default(0)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  favorate    :boolean         default = false
 #
