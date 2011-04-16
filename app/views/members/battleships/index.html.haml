@@ -16,7 +16,7 @@
           %br
           %span{:id => "trunc#{battleship.id}"}= truncate_and_link(battleship)
           %div{:id => "notrunc#{battleship.id}", :style => "display: none"}= h battleship.description
-        %td= link_to dynamic_star(battleship), favorate_members_battleship_path(battleship), :method => :put, :title => "Toggle Favorate"
+        %td{:id => "star#{battleship.id}"}= render :partial => 'members/battleships/star_column', :locals => {:battleship => battleship}
         %td= link_to image_tag("icon_small_info.png", :border => 0, :alt => "Show"), [:members, battleship], :title => "Show #{battleship.name}"
         -if owned_by(current_user, battleship)
           %td= link_to image_tag("icon_small_edit.png", :border => 0, :alt => "Edit"), edit_members_battleship_path(battleship), :title => "Edit #{battleship.name}"

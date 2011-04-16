@@ -1,0 +1,1 @@
+page.replace_html "star#{@battleship.id}", render(:partial => 'members/battleships/star_column', :locals => {:battleship => @battleship})
