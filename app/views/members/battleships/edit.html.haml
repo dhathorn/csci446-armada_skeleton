@@ -1,4 +1,4 @@
-= render :partial => 'battle_ship_bar'
+= render :partial => 'members/battleships/battle_ship_bar', :locals => {:battleship => @battleship}
 %h1= "Edit #{@battleship.name}"
 - form_for([:members, @battleship], :html => {:multipart => true}) do |f|
   = f.error_messages
