@@ -7,7 +7,7 @@ class Members::BattleshipsController < Members::MembersController
     end
   end
 
-  def my_ship
+  def my_ships
     @battleships = current_user.battleships.paginate :page => params[:page], :order => 'created_at DESC'
     respond_to do |format|
       format.html { render 'members/battleships/index'}
@@ -15,7 +15,7 @@ class Members::BattleshipsController < Members::MembersController
     end
   end
 
-  def my_favs
+  def favs
     @battleships = current_user.favorites.collect(&:battleship).paginate :page => params[:page], :order => 'created_at DESC'
     respond_to do |format|
       format.html { render 'members/battleships/index'}
