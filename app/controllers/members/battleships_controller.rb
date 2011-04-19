@@ -6,6 +6,21 @@ class Members::BattleshipsController < Members::MembersController
       format.xml { render :xml => @battleships }
     end
   end
+  def my_ships
+    @battleships = current_user.battleships.paginate :page => params[:page], :order => 'created_at DESC'
+    respond_to do |format|
+      format.html { render 'members/battleships/index'}
+      format.xml { render :xml => @battleships }
+    end
+  end
+
+  def my_favs
+    @battleships = current_user.favorites.first.battleships.paginate :page => params[:page], :order => 'created_at DESC'
+    respond_to do |format|
+      format.html { render 'members/battleships/index'}
+      format.xml { render :xml => @battleships }
+    end
+  end
 
   def show
     @battleship = Battleship.find(params[:id])
