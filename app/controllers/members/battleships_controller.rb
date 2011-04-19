@@ -15,7 +15,7 @@ class Members::BattleshipsController < Members::MembersController
   end
 
   def my_favs
-    @battleships = current_user.favorites.first.battleships.paginate :page => params[:page], :order => 'created_at DESC'
+    @battleships = current_user.favorites.collect(&:battleship).paginate :page => params[:page], :order => 'created_at DESC'
     respond_to do |format|
       format.html { render 'members/battleships/index'}
       format.xml { render :xml => @battleships }
