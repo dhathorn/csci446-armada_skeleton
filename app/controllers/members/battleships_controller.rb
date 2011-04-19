@@ -59,7 +59,7 @@ class Members::BattleshipsController < Members::MembersController
   end
 
   def destroy 
-    @battleship = battleship.find(params[:id])
+    @battleship = Battleship.find(params[:id])
     @battleship.destroy
     respond_to do |format|
       format.html {redirect_to(members_battleships_url)}
