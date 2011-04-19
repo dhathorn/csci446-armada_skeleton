@@ -12,6 +12,7 @@ class Battleship < ActiveRecord::Base
     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
     :path => "cs446/giraffe/#{Rails.env}/:attachment/:id/:style.:extension"
   belongs_to :user
+  has_many :favorites
 
   @@per_page = 10
 

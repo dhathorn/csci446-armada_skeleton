@@ -69,12 +69,17 @@ class Members::BattleshipsController < Members::MembersController
 
   def favorite
     @battleship = Battleship.find(params[:id])
-    @battleship.favorite ? @battleship.update_attribute(:favorite, false) : @battleship.update_attribute(:favorite, true)
-    #respond_to do |format|
-    #  format.html {redirect_to members_battleships_path}
-    #  format.js
-    #  format.xml {head :ok}
-    #end
+    unless @favorite = @battleship.favorites.exists?(current_user)
+      @favorate = Favorite.create(:user_id => current_user.id, :battleship_id => @battleship.id)
+    else
+      @favorate = Favorite.destroy(@battleship.favorites.find(current_user))
+    end
+    #@battleship.favorite ? @battleship.update_attribute(:favorite, false) : @battleship.update_attribute(:favorite, true)
+    respond_to do |format|
+      format.html {redirect_to members_battleships_path}
+      format.js
+      format.xml {head :ok}
+    end
   end
 
 end
