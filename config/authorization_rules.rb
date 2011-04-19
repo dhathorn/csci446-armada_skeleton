@@ -2,7 +2,7 @@
 authorization do
   role :member do
     has_permission_on :members_members, :to => :read
-    has_permission_on :members_battleships, :to => [:read, :manage, :favorate]
+    has_permission_on :members_battleships, :to => [:read, :manage, :favorite]
   end
   role :administrator do
     includes :member

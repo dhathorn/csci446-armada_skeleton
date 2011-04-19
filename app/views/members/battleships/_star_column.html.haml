@@ -1,2 +1,2 @@
-/=link_to dynamic_star(battleship), favorate_members_battleship_path(battleship), :method => :put, :title => "Toggle Favorate"
-=link_to_remote dynamic_star(battleship), {:url => {:controller => "members/battleships", :action => 'favorate', :id => battleship.id}, :method => :put, :html => {:title => "Toggle Favorate"}}
+/=link_to dynamic_star(battleship), favorite_members_battleship_path(battleship), :method => :put, :title => "Toggle Favorite"
+=link_to_remote dynamic_star(battleship), {:url => {:controller => "members/battleships", :action => 'favorite', :id => battleship.id}, :method => :put, :html => {:title => "Toggle Favorite"}}

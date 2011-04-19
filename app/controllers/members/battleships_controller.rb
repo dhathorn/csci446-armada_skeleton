@@ -44,9 +44,9 @@ class Members::BattleshipsController < Members::MembersController
     redirect_to(members_battleships_url)
   end
 
-  def favorate
+  def favorite
     @battleship = Battleship.find(params[:id])
-    @battleship.favorate ? @battleship.update_attribute(:favorate, false) : @battleship.update_attribute(:favorate, true)
+    @battleship.favorite ? @battleship.update_attribute(:favorite, false) : @battleship.update_attribute(:favorite, true)
     respond_to do |format|
       format.html {redirect_to members_battleships_path}
       format.js

@@ -10,7 +10,7 @@ class Battleship < ActiveRecord::Base
     :default_url => '/images/default_battleship.png',
     :storage => :s3,
     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-    :path => "cs446/giraffe/#{Ralis.env}/:attachment/:id/:style.:extension"
+    :path => "cs446/giraffe/#{Rails.env}/:attachment/:id/:style.:extension"
   belongs_to :user
 
   @@per_page = 10
@@ -35,5 +35,5 @@ end
 #  user_id     :integer         default(0)
 #  created_at  :datetime
 #  updated_at  :datetime
-#  favorate    :boolean         default = false
+#  favorite    :boolean         default = false
 #

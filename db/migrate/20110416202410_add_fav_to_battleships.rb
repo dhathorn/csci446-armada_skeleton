@@ -1,9 +1,9 @@
 class AddFavToBattleships < ActiveRecord::Migration
   def self.up
-    add_column :battleships, :favorate, :boolean, :default => false
+    add_column :battleships, :favorite, :boolean, :default => false
   end
 
   def self.down
-    remove_column :battleships, :favorate
+    remove_column :battleships, :favorite
   end
 end

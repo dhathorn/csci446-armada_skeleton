@@ -1,10 +1,10 @@
 module BattleshipsHelper
 
   def dynamic_star(battleship)
-    if battleship.favorate
-      return image_tag("icon_small_star.png", :border => 0, :title => "Toggle favorate")
+    if battleship.favorite
+      return image_tag("icon_small_star.png", :border => 0, :title => "Toggle favorite")
     else
-      return image_tag("icon_small_star_inactive.png", :border => 0, :title => "Toggle favorate")
+      return image_tag("icon_small_star_inactive.png", :border => 0, :title => "Toggle favorite")
     end
   end
 
