@@ -70,11 +70,11 @@ class Members::BattleshipsController < Members::MembersController
   def favorite
     @battleship = Battleship.find(params[:id])
     @battleship.favorite ? @battleship.update_attribute(:favorite, false) : @battleship.update_attribute(:favorite, true)
-    respond_to do |format|
-      format.html {redirect_to members_battleships_path}
-      format.js
-      format.xml {head :ok}
-    end
+    #respond_to do |format|
+    #  format.html {redirect_to members_battleships_path}
+    #  format.js
+    #  format.xml {head :ok}
+    #end
   end
 
 end
