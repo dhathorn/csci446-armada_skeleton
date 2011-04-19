@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_paper_trail
   
   belongs_to :role, :counter_cache => true
+  has_many :battleships
+  has_many :favorites
 
   default_scope :include => :role
 
