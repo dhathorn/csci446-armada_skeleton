@@ -1,4 +1,4 @@
-= render :partial => 'battle_ship_bar'
+= render :partial => 'members/battleships/battle_ship_bar', :locals => {:battleship => @battleship}
 %p 
   = "Created by #{@battleship.user.full_name} on #{@battleship.created_at}"
 %p= image_tag(@battleship.image :size => :large)
