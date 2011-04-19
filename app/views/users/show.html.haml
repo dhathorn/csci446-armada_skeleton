@@ -1,0 +1,15 @@
+- content_for :title do
+  Profile
+
+.profile
+  %h2= "#{@user.to_s}'s Profile"
+  %p= 'First Name:'
+  %p= @user.first_name
+  %br
+  %p= 'Last Name:'
+  %p= @user.last_name
+  %br
+  %p= 'E-mail Address:'
+  %p= @user.email
+  - if @user == current_user
+    =link_to "Edit", edit_members_user_path(@user)

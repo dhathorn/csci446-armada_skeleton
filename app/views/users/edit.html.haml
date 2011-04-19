@@ -1,0 +1,28 @@
+- content_for :title do
+  Edit Profile
+
+.login
+  %h2= "#{@user.to_s}'s Profile"
+  - form_for @user, :url => members_user_path(@user) do |f|
+    = f.error_messages
+    %p
+      = f.label :first_name, 'First Name'
+      %br
+      = f.text_field :first_name
+    %p
+      = f.label :last_name, 'Last Name'
+      %br
+      = f.text_field :last_name
+    %p
+      = f.label :email, 'E-mail Address'
+      %br
+      = f.text_field :email
+    %p
+      = f.label :password
+      %br
+      = f.password_field :password
+    %p
+      = f.label :password_confirmation
+      %br
+      = f.password_field :password_confirmation
+    %p= f.submit "Save"
