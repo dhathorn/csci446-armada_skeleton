@@ -6,7 +6,8 @@ class Members::BattleshipsController < Members::MembersController
       format.xml { render :xml => @battleships }
     end
   end
-  def my_ships
+
+  def my_ship
     @battleships = current_user.battleships.paginate :page => params[:page], :order => 'created_at DESC'
     respond_to do |format|
       format.html { render 'members/battleships/index'}
