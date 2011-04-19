@@ -5,8 +5,12 @@ class Battleship < ActiveRecord::Base
   validates_presence_of :name
   validates_numericality_of :cost
 
-  has_attached_file :image, :styles => { :large => "500x500>", :thumb => "100x100>" },
-    :url => '/assets/:class/:attachment/:id/:style/:filename'
+  has_attached_file :image, 
+    :styles => { :medium => "300x300#", :thumb => "72x72#" },
+    :default_url => '/images/default_battleship.png',
+    :storage => :s3,
+    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+    :path => "cs446/giraffe/#{Ralis.env}/:attachment/:id/:style.:extension"
   belongs_to :user
 
   @@per_page = 10
