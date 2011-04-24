@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   
   belongs_to :role, :counter_cache => true
   has_many :battleships
-  has_many :favorites
+  has_many :favorites, :dependent => :destroy
 
   default_scope :include => :role
 
