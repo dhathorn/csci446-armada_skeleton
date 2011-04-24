@@ -8,7 +8,7 @@
   %table 
     - @battleships.each do |battleship|
       %tr
-        %td= image_tag(battleship.image.url)
+        %td= image_tag(battleship.image.url, :size => :medium)
         %td
           = link_to battleship.name, [:members, battleship]
           = "owned by #{battleship.user.full_name} (#{battleship.cost} ArmadaBucks)"
