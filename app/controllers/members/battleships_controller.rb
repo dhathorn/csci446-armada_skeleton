@@ -65,10 +65,10 @@ class Members::BattleshipsController < Members::MembersController
     
     respond_to do |format|
       if @battleship.update_attributes(params[:battleship])
-        format.html {redirect_to( members_root_path, :notice => 'battleship was successfully updated.')}
+        format.html {redirect_to(members_root_path, :notice => 'battleship was successfully updated.')}
         format.xml { head :ok }
       else
-        render :action => "edit" 
+        format.html {render :action => "edit" }
         format.xml  { render :xml => @battleship.errors, :status => :unprocessable_entity }
       end
     end
