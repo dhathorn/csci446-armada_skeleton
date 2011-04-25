@@ -85,10 +85,10 @@ class Members::BattleshipsController < Members::MembersController
 
   def favorite
     @battleship = Battleship.find(params[:id])
-    unless @favorite = @battleship.favorites.exists?(current_user)
+    unless @favorite = @battleship.favorites.exists?(:user_id => current_user)
       @favorate = Favorite.create(:user_id => current_user.id, :battleship_id => @battleship.id)
     else
-      @favorate = Favorite.destroy(@battleship.favorites.find(current_user))
+      @battleship.favorites.find_by_user_id(current_user.id).destroy
     end
     #@battleship.favorite ? @battleship.update_attribute(:favorite, false) : @battleship.update_attribute(:favorite, true)
     respond_to do |format|
