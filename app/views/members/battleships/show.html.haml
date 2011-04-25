@@ -1,4 +1,6 @@
 = render :partial => 'members/battleships/battle_ship_bar', :locals => {:battleship => @battleship}
+#userbar
+  =new_link(@current_user)
 %p 
   = "Created by #{@battleship.user.full_name} on #{@battleship.created_at}"
 %p= image_tag(@battleship.image.url(:medium))
