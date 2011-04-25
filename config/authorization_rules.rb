@@ -1,5 +1,8 @@
 # Using declarative_authorization.
 authorization do
+  role :guest do
+    has_permission_on :members_battleships, :to => :show
+  end
   role :member do
     has_permission_on :members_members, :to => :read
     has_permission_on :members_battleships, :to => [:read, :manage, :favorite, :favs, :my_ships]

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user, :home_url_for
 
   # A simple route for the application home page or root_url.
-  def show
+  def index
     @battleships = Battleship.paginate :page => params[:page], :order => 'created_at DESC'
     render 'members/battleships/index'
   end

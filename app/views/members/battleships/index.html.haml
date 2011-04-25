@@ -4,7 +4,8 @@
 %p
   = will_paginate @battleships
   %br
-  = "#{@battleships.size} battleships as of #{Time.now.to_s(:short_date)}"
+  = page_entries_info @battleships
+  = "as of #{Time.now.to_s(:short_date)}"
   %table 
     - @battleships.each do |battleship|
       %tr
@@ -20,6 +21,5 @@
         -if owned_by(current_user, battleship)
           %td= link_to image_tag("icon_small_edit.png", :border => 0, :alt => "Edit"), edit_members_battleship_path(battleship), :title => "Edit #{battleship.name}"
           %td= link_to image_tag("icon_small_delete.png", :border => 0, :alt => "Delete"), [:members, battleship], :method => "Delete", :title => "Delete #{battleship.name}"
-  = page_entries_info @battleships
 
         
