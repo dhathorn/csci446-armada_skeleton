@@ -3,7 +3,7 @@ class Battleship < ActiveRecord::Base
   cattr_reader :per_page
   validates_length_of :name, :minimum => 1
   validates_presence_of :name
-  validates_numericality_of :cost
+  validates_numericality_of :cost, :only_integer => true, :greater_than => 0, :less_than => 2147483647
 
   has_attached_file :image, 
     :styles => { :large => "500x500#", :medium => "300x300#", :thumb => "72x72#" },
