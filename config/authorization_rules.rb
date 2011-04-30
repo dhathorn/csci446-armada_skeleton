@@ -5,7 +5,10 @@ authorization do
   end
   role :member do
     has_permission_on :members_members, :to => :read
-    has_permission_on :members_battleships, :to => [:read, :manage, :favorite, :favs, :my_ships]
+    has_permission_on :members_battleships, :to => [:read, :favorite, :favs, :my_ships]
+    has_permission_on :members_battleships, :to => :manage do
+      if_attribute :user => is { user }
+    end
   end
   role :administrator do
     includes :member

@@ -1,4 +1,7 @@
 class Members::BattleshipsController < Members::MembersController
+
+  filter_access_to [:show, :new, :create, :update, :destroy], :attribute_check => true
+
   def index
     @battleships = Battleship.paginate :page => params[:page], :order => 'created_at DESC'
     respond_to do |format|
