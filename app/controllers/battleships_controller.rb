@@ -1,8 +1,8 @@
 class BattleshipsController < ApplicationController
 
   def index
-    @battleships = Battleship.paginate :page => params[:page], :order => 'created_at DESC'
     respond_to do |format|
+      @battleships = Battleship.all
       format.xml { render :xml => @battleships }
     end
   end
