@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login 'login', :controller => "user_sessions", :action => "new"
   map.resources :user_sessions, :only => [:new, :create, :destroy]
   map.resources :password_resets, :only => [:new, :create, :edit, :update]
+  map.resources :battleships, :only => [:show, :index]
   
   map.register 'register', :controller => 'users', :action => 'new'
   map.resources :users, :only => [:new, :create]
